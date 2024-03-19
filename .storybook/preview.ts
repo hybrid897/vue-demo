@@ -7,11 +7,18 @@ import ToastService from 'primevue/toastservice'
 import 'primevue/resources/themes/lara-light-indigo/theme.css'
 import '../src/index.css'
 
+// Stop duplicating registrations on storybook autodoc pages
+// Ideally we shouldn't need to import a primeVue file directly, it should be in one of our own configured vue files
+let setupComplete = false;
+
 setup((app) => {
-  app.use(PrimeVue, { ripple: true })
-  app.use(ToastService)
-  app.component('Button', Button)
-  app.component('Toast', Toast)
+  if(!setupComplete) {
+    app.use(PrimeVue)
+    app.use(ToastService)
+    app.component('Button', Button)
+    app.component('Toast', Toast)
+    setupComplete = true;
+  }
 })
 
 const preview: Preview = {

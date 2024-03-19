@@ -1,8 +1,6 @@
 <template>
   <header>
     <div class="storybook-header">
-      <Toast />
-      <Button label="Multiple" severity="warning" @click="showMultiple()" />
       <div>
         <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
           <g fill="none" fill-rule="evenodd">
@@ -43,10 +41,9 @@
 
 <script lang="ts" setup>
 import './header.css'
+
 import MyButton from './Button.vue'
-import Button from 'primevue/button'
-import Toast from 'primevue/toast'
-import { useToast } from 'primevue/usetoast'
+
 
 defineProps<{ user: { name: string } | null }>()
 
@@ -56,11 +53,4 @@ defineEmits<{
   (event: 'logout'): void
 }>()
 
-const toast = useToast()
-const showMultiple = () => {
-  toast.add({ severity: 'success', summary: 'Success', detail: 'Message Content', life: 3000 })
-  toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3050 })
-  toast.add({ severity: 'warn', summary: 'Warning', detail: 'Message Content', life: 3100 })
-  toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 })
-}
 </script>
