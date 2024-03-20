@@ -2,8 +2,6 @@
   <article>
     <my-header :user="user" @login="onLogin" @logout="onLogout" @create-account="onCreateAccount" />
 
-    <Toast />
-    <Button label="Multiple" severity="warning" @click="showMultiple()" > </Button>
     <section class="storybook-page">
       <h2>Pages in Storybook</h2>
       <p>
@@ -56,28 +54,21 @@
 </template>
 
 <script lang="ts" setup>
-import './page.css';
-import MyHeader from './Header.vue';
+import './page.css'
+import MyHeader from './Header.vue'
 import Button from 'primevue/button'
-import Toast from 'primevue/toast'
-import { useToast } from 'primevue/usetoast'
-import { ref } from 'vue';
 
-const user = ref<{ name: string } | null>(null);
+import { ref } from 'vue'
+
+const user = ref<{ name: string } | null>(null)
 
 const onLogin = () => {
-  user.value = { name: 'Jane Doe' };
-};
-const onLogout = () => {
-  user.value = null;
-};
-const onCreateAccount = () => {
-  user.value = { name: 'Jane Doe' };
-};
-
-const toast = useToast()
-const showMultiple = () => {
-  toast.add({ severity: 'success', summary: 'Success', detail: 'Message Content', life: 0 })
+  user.value = { name: 'Jane Doe' }
 }
-
+const onLogout = () => {
+  user.value = null
+}
+const onCreateAccount = () => {
+  user.value = { name: 'Jane Doe' }
+}
 </script>

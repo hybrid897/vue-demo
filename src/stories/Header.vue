@@ -44,7 +44,6 @@ import './header.css'
 
 import MyButton from './Button.vue'
 
-
 defineProps<{ user: { name: string } | null }>()
 
 defineEmits<{
@@ -52,5 +51,4 @@ defineEmits<{
   (event: 'login'): void
   (event: 'logout'): void
 }>()
-
 </script>
