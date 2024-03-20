@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascript"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["(?<=root:[\\s\\S]+['\"])(?<!te\\[')(?<!=[\\s:]['\"])[*:]?[a-z\\*\\-].+?(?='|\")"]
+  ]
+}
